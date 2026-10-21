@@ -17,6 +17,7 @@
   #cppEditor{width:100%;min-height:330px;resize:vertical;border:1px solid #303d62;border-radius:10px;padding:13px;background:#10192f;color:#eaf1ff;font:13px/1.55 Consolas,monospace}
   @media(max-width:1050px){#lessons{padding-right:0}.online-editor{position:relative;right:auto;top:auto;width:auto;max-height:none}}
 </style>
+<script>window.addEventListener('load',function(){var ed=document.querySelector('#cppEditor'),run=document.querySelector('#runCpp'),out=document.querySelector('#cppOutput');if(!ed||!run)return;var label=document.createElement('label');label.textContent='Program input (one value per line)';label.style.cssText='display:block;margin-top:10px;font-weight:700';var input=document.createElement('textarea');input.id='cppInput';input.rows=3;input.placeholder='Example: 7';input.style.cssText='width:100%;resize:vertical;border:1px solid #d8dcf0;border-radius:10px;padding:10px;background:#10192f;color:#eaf1ff;font:13px Consolas,monospace';ed.after(label,input);run.onclick=function(){var code=ed.value,values=input.value.trim();var lines=[...code.matchAll(/cout\s*<<\s*"([^"]*)"/g)].map(function(m){return m[1].replaceAll('\\n','\n')});out.textContent=(lines.length?lines.join(''):'Practice preview: add cout << "your message";')+(values?'\nInput: '+values:'')};});</script>
 </head>
 <body>
 <script>
